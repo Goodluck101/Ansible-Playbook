@@ -1,0 +1,9 @@
+# Inventory file used when you are not the root user to be capable of modifying the "hosts" file in "/etc/ansible" folder
+
+node1 ansible_host=161.35.171.0
+node2 ansible_host=161.35.175.108
+
+
+# [nodes]
+##161.35.171.0
+## 161.35.175.108

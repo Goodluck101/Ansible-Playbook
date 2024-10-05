@@ -1,0 +1,72 @@
+    1  ls
+    2  sudo apt update
+    3  sudo apt-add-repository ppa:ansible/ansible
+    4  sudo apt update
+    5  sudo apt install ansible
+    6  ls
+    7  ls -la
+    8  ansible --version
+    9  cd /etc/ansible/
+   10  ls
+   11  sudo nano ansible.cfg 
+   12  sudo nano hosts 
+   13  cd ~
+   14  pwd
+   15  ls -rt
+   16  ls -lrta
+   17  cd .ssh
+   18  ls
+   19  ls -ltra
+   20  cd
+   21  ssh-keygen
+   22  cd .ssh
+   23  ls -ltra
+   24  nano id_ed25519
+   25  cat id_ed25519
+   26  pwd
+   27  cd
+   28  ssh-copy-id root@161.35.171.0
+   29  ssh 'root@161.35.171.0'
+   30  ls -ltr
+   31  cd .ssh
+   32  ls -ltr
+   33  nano known_hosts
+   34  ssh-copy-id root@161.35.175.108
+   35  ssh 'root@161.35.175.108'
+   36  cd
+   37  ls -ltr
+   38  cd /etc/ansible
+   39  ls
+   40  nano hosts 
+   41  ansible node1 -m ping
+   42  ping 161.35.175.108
+   43  ansible node2 -m ping
+   44  nano hosts 
+   45  ansible nodes -m ping
+   46  nano hosts 
+   47  ansible nodes -a ls
+   48  ansible nodes -a "ls"
+   49  ansible nodes -a "ls -ltra"
+   50  nano hosts 
+   51  ansible nodes[1] -a "ls -ltra"
+   52  ansible nodes[0] -a "ls -ltra"
+   53  ansible nodes[0-1] -a "ls -ltra"
+   54  ansible nodes[0:1] -a "ls -ltra"
+   55  ansible nodes[0:2] -a "ls -ltra"
+   56  nano hosts 
+   57  cd
+   58  ls
+   59  cd /etc/ansible/
+   60  ls
+   61  vi hosts 
+   62  cd
+   63  sudo nano inventory.txt
+   64  ansible node2 -m ping
+   65  ansible node2 -m ping -i inventory.txt
+   66  sudo nano inventory.txt
+   67  ansible node2 -m ping
+   68  ansible node2 -m ping -i inventory.txt
+   69  sudo nano inventory.txt
+   70  sudo nano inv_dev
+   71  ansible nodes[0:2] -a "ls -ltra" -i inv_dev 
+   72  history 100 > hist.txt
