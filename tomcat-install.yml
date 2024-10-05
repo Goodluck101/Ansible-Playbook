@@ -42,7 +42,8 @@
 
     - name: Download Tomcat and Unarchive
       unarchive:
-       src: "https://archive.apache.org/dist/tomcat/tomcat-10/v10.1.5/bin/apache-tomcat-10.1.5.tar.gz"
+   #    src: "https://archive.apache.org/dist/tomcat/tomcat-10/v10.1.5/bin/apache-tomcat-10.1.5.tar.gz"
+       src: "https://archive.apache.org/dist/tomcat/tomcat-10/v{{ tomcat_version }}/bin/apache-tomcat-{{ tomcat_version }}.tar.gz"   
        dest: '{{ tomcat_path }}'
        remote_src: yes
        extra_opts: [--strip-components=1]
@@ -58,3 +59,12 @@
 
     - name: Allow tcp connections
       command: sudo ufw allow 8080/tcp
+
+    - name: Connect to Tomcat on port 8080
+      uri:
+       url: http://localhost:8080
+      register: result
+      until: "result.status==200"
+      retries: 2
+      delay: 5
+
